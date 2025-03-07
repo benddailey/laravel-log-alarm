@@ -93,8 +93,15 @@ class LogHandler
         } catch (\Exception $e) {
             // Do nothing
         }
+		
+        $message = "LOG_LEVEL: {$log_level}\r\nLOG_MESSAGE: {$log_message}\r\nLOG_FILE: {$log_file}\r\nLOG_LINE: {$log_line}";
 
-        return "LOG_LEVEL: {$log_level}\r\nLOG_MESSAGE: {$log_message}\r\nLOG_FILE: {$log_file}\r\nLOG_LINE: {$log_line}";
+		$context = Context::all();
+		if ($context) {
+			$message = $message . "\r\nCONTEXT: " . json_encode($context);
+		}
+
+		return $message;
     }
     /**
      * logError
