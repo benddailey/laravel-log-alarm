@@ -4,6 +4,7 @@ namespace Saasscaleup\LogAlarm;
 
 use Illuminate\Log\Events\MessageLogged;
 use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Context;
 use Illuminate\Support\Carbon;
 
 class LogHandler
